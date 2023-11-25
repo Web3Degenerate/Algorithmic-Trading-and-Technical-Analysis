@@ -1,2 +1,11 @@
 # Algorithmic-Trading-and-Technical-Analysis
-Algorithmic Trading &amp; Technical Analysis Tutorial
+
+## Introduction to Technical Analysis
+
+1. Candlesticks
+
+- - x
+
+## Pine Script
+
+1.
