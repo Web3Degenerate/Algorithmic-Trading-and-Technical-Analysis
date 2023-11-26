@@ -5,13 +5,27 @@
 
 strategy(title="50 and 20 SMA Crossing", overlay=true)
 
-//DEFINITIONS
+//DEFINITIONS ( V3 `sma()`, `V5 ta.sma()` )
 shortMa = ta.sma(close, 20)
-longMa = sma(close, 50)
+longMa = ta.sma(close, 50)
 
-//LOGIC
-longSignal = crossover(shortMa, longMa)
-shortSignal = crossover(longMa, shortMa)
+//Date Range added in: https://academy.moralis.io/lessons/back-testing-part-1-enabling-datasets-selection
+// V3 only had input() function:
+fromMonth = input(defval=1, title = "From month", minval=1)
+fromDay = input(defval=1, title = "From day", minval=1)
+fromYear = input(defval=2023, title = "From year", minval=2014) //whenever CB added data
+
+// V5 has a input.timeframe() function: https://www.tradingview.com/pine-script-reference/v5/#fun_input.timeframe
+indicator("input.timeframe", overlay=true)
+i_res = input.timeframe('D', "Custom Timeframe", options=['D', 'W', 'M', 'Y'])
+
+toMonth = input(defval=1, title = "To month", minval=1)
+toDay = input(defval=1, title = "To day", minval=1)
+toYear = input(defval=2023, title = "To year", minval=2014) //whenever CB added data
+
+//LOGIC (v5 added ta.crossover())
+longSignal = ta.crossover(shortMa, longMa)
+shortSignal = ta.crossover(longMa, shortMa)
 
 
 // ********************   ENTER POSITIONS  ******************** //

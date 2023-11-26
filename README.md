@@ -109,4 +109,10 @@ if(shortSignal) => close long position(?) and enter short
 
 6. [**Add Our 50-20 Model to Pine Script in Trading View**](https://academy.moralis.io/lessons/programming)
 
+  - v5 version added.
+
+7. [**Back testing Part 1 - Enabling Datasets Selection**](https://academy.moralis.io/lessons/back-testing-part-1-enabling-datasets-selection)
   - 
+  - We need to add the ability to change the date range for our back testing. 
+  - By default, Trading View does not offer that in their settings (_as of 2019_)
+  
