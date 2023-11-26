@@ -1,2 +1,27 @@
 // *********** First SMA Strategy: https://academy.moralis.io/lessons/building-a-simple-strategy  ************************************** //
 
+// Try version 3? 
+//@version=5 
+
+strategy(title="50 and 20 SMA Crossing", overlay=true)
+
+//DEFINITIONS
+shortMa = ta.sma(close, 20)
+longMa = sma(close, 50)
+
+//LOGIC
+longSignal = crossover(shortMa, longMa)
+shortSignal = crossover(longMa, shortMa)
+
+
+// ********************   ENTER POSITIONS  ******************** //
+// if longSignal==true 
+if longSignal
+    // strategy.entry(id="longPosition", strategy.long, 1, comment = "Buy on 20 over 50 SMA cross")
+    strategy.entry("longPosition", strategy.long, 1, comment = "Buy on 20 over 50 SMA cross")
+
+if shortSignal
+    strategy.entry("shortPosition", strategy.short, 1, comment = "shortSignal on 50 over 20 SMA cross")
+
+// When you enter a short position, TradingView automatically closes any open positions you have? (3:40)
+
