@@ -1,0 +1,18 @@
+// ************************************* Work Through: https://academy.moralis.io/lessons/reading-assignment-pinescript *************** //
+//@version=5
+strategy(title = "simple strategy entry example")
+if open > high[1]
+    strategy.entry("enter long", strategy.long, 1) // enter long by market if current open great then previous high
+if open < low[1]
+    strategy.entry("enter short", strategy.short, 1) // enter short by market if current open less then previous low
+
+// input test from: https://www.tradingview.com/pine-script-reference/v5/#fun_input
+//@version=5
+indicator("input", overlay=true)
+i_switch = input(true, "On/Off")
+plot(i_switch ? open : na)
+
+i_text = input("Hello!", "Message")
+// l = label.new(bar_index, high, text=i_text)
+l = label.new(volume, high, text=i_text)
+label.delete(l[1])

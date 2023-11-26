@@ -1,0 +1,18 @@
+// *********** First SMA Strategy: https://academy.moralis.io/lessons/building-a-simple-strategy  ************************************** //
+
+// From: https://academy.moralis.io/lessons/building-a-simple-strategy
+strategy(title="MAStrategy")
+
+m=ta.sma(close, 10) //10 candles
+buy=close > m //buy when close is above 10 day simple moving average
+sell=close < m //sell when close is below 10 day simple moving average
+
+if buy
+    // strategy.entry("buy", true, 5, when=buy)
+    //first param is just your preferred name
+    //second param is long or short. Deprecated version true for long, false for short.
+    //third is amount to buy.
+    strategy.entry("buy", strategy.long, 5, comment = "buy mofo")
+if sell
+    strategy.close("buy", qty_percent = 100, comment = "close buy entry for 50% when close below 10-day SMA")
+    // strategy.exit("sell", strategy.short, 3)

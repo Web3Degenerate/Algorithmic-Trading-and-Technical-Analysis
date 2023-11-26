@@ -1,0 +1,23 @@
+
+// ************************************* Default Code Provided by Trading View ************************************** //
+
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © DegenerateChain
+
+//@version=5
+// indicator("My script")
+// plot(close)
+
+
+// ************************************* First Walkthrough: https://academy.moralis.io/lessons/strategy-tester *************** //
+
+// strategy(title = "Test")
+strategy.entry("buy", strategy.long, 100, when = n==1)
+strategy.close("buy", when = n==1000)
+
+// updated version: 
+strategy(tilte = "Test")
+if n==1
+    strategy.entry("buy", strategy.long, 100)
+if n==1000
+    strategy.close("buy", qty_percent=100)

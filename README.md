@@ -8,6 +8,9 @@
 
 ## Pine Script
 
+0. [**Strategy Tester - First Pine Script Test in Trading View**](https://academy.moralis.io/lessons/strategy-tester)
+  - **NOTE:** Examples shown in Version 3. Currently (Fall 2023) on Version 5.
+
 1. [**Variables**](https://academy.moralis.io/lessons/variables)
 
    - open - _opening price of the current candle_
@@ -70,7 +73,7 @@ if sell
 
    - (3) _What_
 
-5. Plan out our [**Model**](https://academy.moralis.io/lessons/model)
+5. Plan out our [**50-20 Model**](https://academy.moralis.io/lessons/model)
 
    - shortMa = `ta.sma(close, 20)`
    - longMa = `ta.sma(close, 50)`
@@ -104,4 +107,6 @@ if(shortSignal) => close long position(?) and enter short
 
 ```
 
-6. x
+6. [**Add Our 50-20 Model to Pine Script in Trading View**](https://academy.moralis.io/lessons/programming)
+
+  - 
