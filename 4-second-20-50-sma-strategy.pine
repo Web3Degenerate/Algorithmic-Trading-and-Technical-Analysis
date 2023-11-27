@@ -3,7 +3,9 @@
 // Try version 3? 
 //@version=5 
 
-strategy(title="50 and 20 SMA Crossing", overlay=true)
+// strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000)
+strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000, commission_type="strategy.commission.percent", commission_value=0.2)
+
 
 //DEFINITIONS ( V3 `sma()`, `V5 ta.sma()` )
 shortMa = ta.sma(close, 20)
@@ -31,6 +33,9 @@ toMonth = input.int(defval=1, title="End Month", minval=1, tooltip = "Select the
 toDay = input.int(defval=1, title="End Day", minval=1, tooltip = "Select the Day")
 toYear = input.int(defval=2023, title="End Month", minval=2014, tooltip = "Select the Year")
 
+//Get Amount to trade 
+trade_amount = input.float(defval=0.1, title="Amount to Trade", tooltip="Enter Amount to Trade")
+
 //LOGIC (v5 added ta.crossover())
 // ********************   LOGIC   ******************** //
 
@@ -49,10 +54,12 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
 // if longSignal==true 
 if longSignal
     // strategy.entry(id="longPosition", strategy.long, 1, comment = "Buy on 20 over 50 SMA cross")
-    strategy.entry("longPosition", strategy.long, 1, comment = "Buy on 20 over 50 SMA cross")
+    // strategy.entry("longPosition", strategy.long, 0.1, comment = "Buy on 20 over 50 SMA cross")
+    strategy.entry("longPosition", strategy.long, trade_amount, comment = "Buy on 20 over 50 SMA cross")
+
 
 if shortSignal
-    strategy.entry("shortPosition", strategy.short, 1, comment = "shortSignal on 50 over 20 SMA cross")
+    strategy.entry("shortPosition", strategy.short, trade_amount, comment = "shortSignal on 50 over 20 SMA cross")
 
 // When you enter a short position, TradingView automatically closes any open positions you have? (3:40)
 

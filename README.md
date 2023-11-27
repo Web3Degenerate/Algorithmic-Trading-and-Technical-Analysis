@@ -9,7 +9,8 @@
 ## Pine Script
 
 0. [**Strategy Tester - First Pine Script Test in Trading View**](https://academy.moralis.io/lessons/strategy-tester)
-  - **NOTE:** Examples shown in Version 3. Currently (Fall 2023) on Version 5.
+
+- **NOTE:** Examples shown in Version 3. Currently (Fall 2023) on Version 5.
 
 1. [**Variables**](https://academy.moralis.io/lessons/variables)
 
@@ -109,10 +110,37 @@ if(shortSignal) => close long position(?) and enter short
 
 6. [**Add Our 50-20 Model to Pine Script in Trading View**](https://academy.moralis.io/lessons/programming)
 
-  - v5 version added.
+- v5 version added.
 
 7. [**Back testing Part 1 - Enabling Datasets Selection**](https://academy.moralis.io/lessons/back-testing-part-1-enabling-datasets-selection)
-  - 
-  - We need to add the ability to change the date range for our back testing. 
-  - By default, Trading View does not offer that in their settings (_as of 2019_)
-  
+
+-
+- We need to add the ability to change the date range for our back testing.
+- By default, Trading View does not offer that in their settings (_as of 2019_)
+- Key changes:
+
+```js
+                            // (year, month, day, hours, mins)
+timeInRange = (time > timestamp(fromYear, fromMonth, fromDay, 00, 00)) and (time < timestamp(toYear, toMonth, toDay, 23, 59))
+
+    // v5 added ta.crossover()
+longSignal = ta.crossover(shortMa, longMa) and timeInRange
+shortSignal = ta.crossover(longMa, shortMa) and timeInRange
+
+```
+
+8. [**Back testing Part 2 - Selecting Datasets**](https://academy.moralis.io/lessons/back-testing-part-2-selecting-datasets)
+
+   - Define our Datasets before optimizing the 50-20 theory.
+   - We will find **two different datasets**
+   - Example Dataset 1: Mid Feb 2018 (2/15/2018) to May 2018 (5/15/2018)
+   - Example Dataset 2: 5/15/2018 to 8/15/2018
+   - The default values can be upddated to a desired dataset you are working with.
+
+9. [**Back testing Part 3 - Tweaking**](https://academy.moralis.io/lessons/back-testing-part-3-tweaking)
+   - Improve trading strategy on dataset.
+   - define **initial_capital** setting with `strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000)`
+   - Add in the trading fee on each trade with two additional settings on **strategy()**
+     - Add in `commission_type="strategy.commission.percent", commission_value=0.2`
+     - So it becomes: `strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000, commission_type="strategy.commission.percent", commission_value=0.2)`
+   - X
