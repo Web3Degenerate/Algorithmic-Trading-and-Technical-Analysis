@@ -32,8 +32,17 @@ toDay = input.int(defval=1, title="End Day", minval=1, tooltip = "Select the Day
 toYear = input.int(defval=2023, title="End Month", minval=2014, tooltip = "Select the Year")
 
 //LOGIC (v5 added ta.crossover())
-longSignal = ta.crossover(shortMa, longMa)
-shortSignal = ta.crossover(longMa, shortMa)
+// ********************   LOGIC   ******************** //
+
+    //boolean, true if current timestamp is within in range (4:10): https://academy.moralis.io/lessons/back-testing-part-1-enabling-datasets-selection
+    // v
+                            // (year, month, day, hours, mins)
+timeInRange = (time > timestamp(fromYear, fromMonth, fromDay, 00, 00)) and (time < timestamp(toYear, toMonth, toDay, 23, 59))
+
+    // v5 added ta.crossover()
+longSignal = ta.crossover(shortMa, longMa) and timeInRange
+shortSignal = ta.crossover(longMa, shortMa) and timeInRange
+
 
 
 // ********************   ENTER POSITIONS  ******************** //
