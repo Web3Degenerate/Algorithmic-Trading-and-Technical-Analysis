@@ -138,9 +138,37 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
    - The default values can be upddated to a desired dataset you are working with.
 
 9. [**Back testing Part 3 - Tweaking**](https://academy.moralis.io/lessons/back-testing-part-3-tweaking)
+
    - Improve trading strategy on dataset.
    - define **initial_capital** setting with `strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000)`
    - Add in the trading fee on each trade with two additional settings on **strategy()**
      - Add in `commission_type="strategy.commission.percent", commission_value=0.2`
      - So it becomes: `strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000, commission_type="strategy.commission.percent", commission_value=0.2)`
-   - X
+   - In our first dataset, adjust the variables to see which provides the best return in the **Strategy Tester** tab.
+   - We will later test the best results we find on another dataset to make sure we are not just **curve fitting**.
+   - In one example, the 45 & 50 SMA worked better than 20 & 50 SMA, so that is the theory we can test on the next dataset.
+
+10. [**Back testing Part 4 - Testing on New Data**](https://academy.moralis.io/lessons/back-testing-part-4-testing-on-new-data)
+
+    - Test strategy on other dataset.
+
+11. [**Connect Pine Script with existing indicators (_Future Inspiration_)**](https://academy.moralis.io/lessons/future-inspiration)
+
+    - (3:25) - Connect RSI indicator to our script.
+    -
+
+12. [**Risk Management Formula**](https://academy.moralis.io/lessons/risk-management-formula)
+
+    - size x stoploss = 1% of portfolio
+      - portfolio size: $2,000
+      - 1% of portfolio: $20
+      - stoploss: $100 / $50 / $200
+    - size x $100 = $20
+    - **0.2** x $100 = $20
+      - so size = `0.2`
+    -
+
+13. [**Stop Loss & Position Size Applied to Pine Script**](https://academy.moralis.io/lessons/stop-loss-position-size)
+    - Portfolio size dynamically changes as you make or lose money.
+    - Trading View has a function to help us with updating the portfolio size as it changes.
+    -

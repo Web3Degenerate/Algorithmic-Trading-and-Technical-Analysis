@@ -4,12 +4,18 @@
 //@version=5 
 
 // strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000)
-strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000, commission_type="strategy.commission.percent", commission_value=0.2)
+// strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000, commission_type="strategy.commission.percent", commission_value=0.2)
+strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000, commission_type=strategy.commission.percent, commission_value=0.2)
+
 
 
 //DEFINITIONS ( V3 `sma()`, `V5 ta.sma()` )
 shortMa = ta.sma(close, 20)
 longMa = ta.sma(close, 50)
+
+//Connect RSI indicator (3:15): https://academy.moralis.io/lessons/future-inspiration
+    //price? closing price. How many bars (hours/days/etc) 14 - standard level:
+r = ta.rsi(close, 14)
 
 //Date Range added in: https://academy.moralis.io/lessons/back-testing-part-1-enabling-datasets-selection
 // V3 only had input() function:
@@ -29,15 +35,16 @@ fromYear = input.int(defval=2023, title="Start Month", minval=2014, tooltip = "S
 // toDay = input(defval=1, title = "To day", minval=1)
 // toYear = input(defval=2023, title = "To year", minval=2014) 
 
-toMonth = input.int(defval=1, title="End Month", minval=1, tooltip = "Select the Month")
-toDay = input.int(defval=1, title="End Day", minval=1, tooltip = "Select the Day")
+toMonth = input.int(defval=12, title="End Month", minval=1, tooltip = "Select the Month")
+toDay = input.int(defval=31, title="End Day", minval=1, tooltip = "Select the Day")
 toYear = input.int(defval=2023, title="End Month", minval=2014, tooltip = "Select the Year")
 
 //Get Amount to trade 
 trade_amount = input.float(defval=0.1, title="Amount to Trade", tooltip="Enter Amount to Trade")
 
-//LOGIC (v5 added ta.crossover())
-// ********************   LOGIC   ******************** //
+
+
+// **************************   LOGIC   ************************************************************************ //
 
     //boolean, true if current timestamp is within in range (4:10): https://academy.moralis.io/lessons/back-testing-part-1-enabling-datasets-selection
     // v
@@ -45,8 +52,12 @@ trade_amount = input.float(defval=0.1, title="Amount to Trade", tooltip="Enter A
 timeInRange = (time > timestamp(fromYear, fromMonth, fromDay, 00, 00)) and (time < timestamp(toYear, toMonth, toDay, 23, 59))
 
     // v5 added ta.crossover()
-longSignal = ta.crossover(shortMa, longMa) and timeInRange
-shortSignal = ta.crossover(longMa, shortMa) and timeInRange
+// longSignal = ta.crossover(shortMa, longMa) and timeInRange and r < 50
+// shortSignal = ta.crossover(longMa, shortMa) and timeInRange and r > 50
+
+//(built-in volume example): (Also, volume over past 5 candles)
+longSignal = ta.crossover(shortMa, longMa) and timeInRange and r < 50 and volume > 300
+shortSignal = ta.crossover(longMa, shortMa) and timeInRange and r > 50 and volume > 300
 
 
 
