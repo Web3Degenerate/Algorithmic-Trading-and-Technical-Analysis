@@ -1,0 +1,14 @@
+{
+  "name": "tradingbot",
+  "version": "1.0.0",
+  "description": "Crypto trading bot tutorial.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@DegenerateChain",
+  "license": "MIT",
+  "dependencies": {
+    "gemini-api": "^2.0.4"
+  }
+}

@@ -177,6 +177,41 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
         - definition: `max_risk = strategy.equity * 0.01`
     - x
 
-14. [**Setting Up NodeJS**]
+14. [**Setting Up NodeJS**](https://academy.moralis.io/lessons/npm-initializing-project)
+
     - Initialize new project: `npm init`
+      - **package name:** `tradingbot`
+      - **version: (1.0.0)** _enter_
+      - **description:** _crypto trading bot tutorial_
+      - **entry point: (index.js)** - _Now that we are creating a package, npm will set up a specific js file for us that it will use to start execution of our program. Previously, `npm bot.js` triggered a single file_
+        - Now we are creating a WHOLE package, so tell node, which file it should start when we fire up program.
+        - We'll use **index.js** as the entry point.
+
+15. [**Gemini Exchange**](https://academy.moralis.io/lessons/why-gemini-exchange)
+
+- Review: initialize npm. Use it to download relevant packages to our project.
+- **Choosing an Exchange**
+  - Must have a **sandbox mode**.
+  - Excluded Binance (in 2019)
+  - Bitmex API was very easy, but not legal in the good ole' USA.
+  - Coinbase had sandbox mode. (2019). Sandbox market is separate from real market. Testnet prices are very different from real prices.
+  - So **for testing, _in 2019_, Gemini was the best fit**.
+    - Sandbox mode, easy API, play money with real prices. Legal in USA.
+
+16. [**Gemini Yarn Install**](https://academy.moralis.io/lessons/gemini-yarn-install)
+
+- Install Gemini Package with:
+
+  - `yarn add gemini-api`
+
+    - Gemini wants us to use yarn. Very popular. Created by FB.
+    - (Not `npm i gemini-api`).
+    - Using an npm package like `gemini-api-node`, is like using a **wrapper**. It structures, formats web request for you, in gemini compliant form. Receive response and formats a response that is easy to understand.
+
+  - **Install Yarn**.
+    - `npm install yarn --global`
     -
+
+- REST - _interact through web requests_.
+- Make request. Receive and parase request.
+-
