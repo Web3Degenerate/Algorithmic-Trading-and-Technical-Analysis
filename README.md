@@ -178,4 +178,5 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
     - x
 
 14. [**Setting Up NodeJS**]
-    - x
+    - Initialize new project: `npm init`
+    -
