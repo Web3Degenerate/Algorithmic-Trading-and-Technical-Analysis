@@ -13,9 +13,6 @@ strategy(title="50 and 20 SMA Crossing", overlay=true, initial_capital = 2000, c
 shortMa = ta.sma(close, 20)
 longMa = ta.sma(close, 50)
 
-//Connect RSI indicator (3:15): https://academy.moralis.io/lessons/future-inspiration
-    //price? closing price. How many bars (hours/days/etc) 14 - standard level:
-r = ta.rsi(close, 14)
 
 //Date Range added in: https://academy.moralis.io/lessons/back-testing-part-1-enabling-datasets-selection
 // V3 only had input() function:
@@ -42,6 +39,15 @@ toYear = input.int(defval=2023, title="End Month", minval=2014, tooltip = "Selec
 //Get Amount to trade 
 trade_amount = input.float(defval=0.1, title="Amount to Trade", tooltip="Enter Amount to Trade")
 
+//Connect RSI indicator (3:15): https://academy.moralis.io/lessons/future-inspiration
+    //price? closing price. How many bars (hours/days/etc) 14 - standard level:
+r = ta.rsi(close, 14)
+
+// Definitions for Stop Loss & Position Size: https://academy.moralis.io/lessons/stop-loss-position-size
+max_risk = strategy.equity * 0.01
+stoploss = 100
+size = max_risk/stoploss
+
 
 
 // **************************   LOGIC   ************************************************************************ //
@@ -63,14 +69,32 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange and r > 50 and volum
 
 // ********************   ENTER POSITIONS  ******************** //
 // if longSignal==true 
-if longSignal
-    // strategy.entry(id="longPosition", strategy.long, 1, comment = "Buy on 20 over 50 SMA cross")
-    // strategy.entry("longPosition", strategy.long, 0.1, comment = "Buy on 20 over 50 SMA cross")
-    strategy.entry("longPosition", strategy.long, trade_amount, comment = "Buy on 20 over 50 SMA cross")
+// if longSignal
+            // strategy.entry(id="longPosition", strategy.long, 1, comment = "Buy on 20 over 50 SMA cross")
+            // strategy.entry("longPosition", strategy.long, 0.1, comment = "Buy on 20 over 50 SMA cross")
+    // strategy.entry("longPosition", strategy.long, trade_amount, comment = "Buy on 20 over 50 SMA cross")
 
-
-if shortSignal
-    strategy.entry("shortPosition", strategy.short, trade_amount, comment = "shortSignal on 50 over 20 SMA cross")
 
 // When you enter a short position, TradingView automatically closes any open positions you have? (3:40)
+// if shortSignal
+//     strategy.entry("shortPosition", strategy.short, trade_amount, comment = "shortSignal on 50 over 20 SMA cross")
 
+// Use newly defined position size as the qty:
+if longSignal
+    strategy.entry("longPosition", strategy.long, size, comment = "Buy on 20 over 50 SMA cross")
+
+if shortSignal
+    strategy.entry("shortPosition", strategy.short, size, comment = "shortSignal on 50 over 20 SMA cross")
+
+
+
+// ******************* EXIT POSITIONS *************************************** //
+    // amounts are in cents? so 100 = 1$. 
+    
+// Set stop loss and lock in profits: 
+// strategy.exit("Exit Long", "longSignal", profit = stoploss*2000, loss = stoploss*100)
+// strategy.exit("Exit Short", "shortSignal", profit = stoploss*2000, loss = stoploss*100)
+
+// Or just stop loss: 
+strategy.exit("Exit Long", "longSignal", loss = stoploss*100)
+strategy.exit("Exit Short", "shortSignal", loss = stoploss*100)

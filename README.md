@@ -169,6 +169,13 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
     -
 
 13. [**Stop Loss & Position Size Applied to Pine Script**](https://academy.moralis.io/lessons/stop-loss-position-size)
+
     - Portfolio size dynamically changes as you make or lose money.
     - Trading View has a function to help us with updating the portfolio size as it changes.
-    -
+      - use `strategy.equity`
+      - Use this to trade 1% of portfolio on every trade:
+        - definition: `max_risk = strategy.equity * 0.01`
+    - x
+
+14. [**Setting Up NodeJS**]
+    - x
