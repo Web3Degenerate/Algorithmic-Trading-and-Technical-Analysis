@@ -219,6 +219,10 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
   - **Clone Repository**
     - `yarn install`
 
-- REST - _interact through web requests_.
-- Make request. Receive and parase request.
--
+  - REST - _interact through web requests_.
+  - Make request. Receive and parase request.
+
+17. [**Using Gemini - BUY ORDER**](https://academy.moralis.io/lessons/using-gemini-buy-order)
+  - Set up a **sandbox account:**
+    - Go to [`exchange.sandbox.gemini.com`](https://exchange.sandbox.gemini.com)
+    - 
