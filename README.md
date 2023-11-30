@@ -210,7 +210,8 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
 
   - **Install Yarn**.
     - `npm install yarn --global`
-    -
+  - **Clone Repository**
+    - `yarn install`
 
 - REST - _interact through web requests_.
 - Make request. Receive and parase request.
