@@ -217,12 +217,17 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
   - **Install Yarn**.
     - `npm install yarn --global`
   - **Clone Repository**
+
     - `yarn install`
 
   - REST - _interact through web requests_.
   - Make request. Receive and parase request.
 
 17. [**Using Gemini - BUY ORDER**](https://academy.moralis.io/lessons/using-gemini-buy-order)
-  - Set up a **sandbox account:**
-    - Go to [`exchange.sandbox.gemini.com`](https://exchange.sandbox.gemini.com)
-    - 
+
+- Set up a **sandbox account:**
+  - Go to [`exchange.sandbox.gemini.com`](https://exchange.sandbox.gemini.com)
+    - Get API Key for authentication.
+      - Copy the (1) **API Key**, and (2) **API Secret**.
+  - Back in `bot-trading/index.js` add:
+    - x
