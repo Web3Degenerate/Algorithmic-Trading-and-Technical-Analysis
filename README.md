@@ -246,7 +246,7 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
 
 20. [**CryptoCompare Setup**](https://academy.moralis.io/lessons/cryptocompare-setup)
 
-    - Install Crypto Compare with:
+    - Install Crypto Compare in the `bot-trading` directory with:
 
       - `yarn add cryptocompare`
 
@@ -257,3 +257,12 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
 
       - Copy the Key and Secret.
       - Add key to `index.js`
+
+21. [**Getting Market Data From CryptoCompare**](https://academy.moralis.io/lessons/getting-market-data-from-cryptocompare)
+
+    - See the [CryptoCompare Documentation here](https://www.npmjs.com/package/cryptocompare)
+
+    - Install **node-fetch** to the project with:
+      - `yarn add node-fetch`
+      - import to `index.js` with `global.fetch = require("node-fetch");`
+    - x
