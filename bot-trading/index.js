@@ -8,6 +8,8 @@ const GeminiAPI = require("gemini-api").default;
 // Initialize the secret and the key
 const secret = '0xe-SECRET-HERE'; 
 const key = "0xf-KEY_HERE";
+// Added Crypto Compare API KEY (2:55): https://academy.moralis.io/lessons/cryptocompare-setup
+const CCAPIKey = "0xg-CryptoCompare_KEY_HERE"
 
 
 

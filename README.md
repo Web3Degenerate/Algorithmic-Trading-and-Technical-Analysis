@@ -231,3 +231,29 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
       - Copy the (1) **API Key**, and (2) **API Secret**.
   - Back in `bot-trading/index.js` add:
     - x
+
+18. [**Gemini API Walkthrough**](https://academy.moralis.io/lessons/gemini-api-walktrough)
+
+    - _See_ [Gemini Docs Here.](https://docs.gemini.com/rest-api/?_gl=1*j0f59b*_gcl_au*MTEzMTkyNjQxOC4xNzAxNDg3NDk0#use-websocket-apis)
+    - [gemini-api docs from yarnpkg.com??](https://classic.yarnpkg.com/en/package/gemini-api) ?
+    - **Promise**: _A promise is when we have a request, and we are waiting for an answer. In JS, it is called a promise. (with. eh....)_
+
+    - See the list of functions on the [gemini-api-node README.md](https://github.com/mjesuele/gemini-api-node)
+
+19. [Work through Gemini Functions](https://academy.moralis.io/lessons/practical-assignment-gemini-api)
+
+- x
+
+20. [**CryptoCompare Setup**](https://academy.moralis.io/lessons/cryptocompare-setup)
+
+    - Install Crypto Compare with:
+
+      - `yarn add cryptocompare`
+
+    - Get your [CryptoCompare API Key here.](https://www.cryptocompare.com/cryptopian/api-keys)
+
+      - Select Read/Write all user Data.
+      - Select Read All Price Streaming and Polling Endpoints (_left Full Read/Write All Data uncheked_)
+
+      - Copy the Key and Secret.
+      - Add key to `index.js`
