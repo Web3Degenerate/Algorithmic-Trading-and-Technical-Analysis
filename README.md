@@ -266,3 +266,13 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
       - `yarn add node-fetch`
       - import to `index.js` with `global.fetch = require("node-fetch");`
     - x
+
+22. [**Creating Hourly MA Indicator**](https://academy.moralis.io/lessons/creating-hourly-ma-indicator)
+
+    - Steps for _100 hour MA_:
+
+      - (1) Get data from Crypto Compare.
+      - (2) Calculate Moving Average from 100 past hours.
+      - (3) Check continously if price is crossing 100 MA => (trigger) BUY/SELL/HOLD.
+
+    - Use CryptoCompare's **histoHour()**

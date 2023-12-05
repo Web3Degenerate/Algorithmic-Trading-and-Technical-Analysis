@@ -11,14 +11,16 @@ global.fetch = fetch;
 
 // Resumed (3:50): https://academy.moralis.io/lessons/using-gemini-buy-order
 // require the gemini package
-import GeminiAPI from "./node_modules/gemini-api/dist/index.js";
+// import GeminiAPI from "./node_modules/gemini-api/dist/index.js";
+import gem from 'gemini-api';
+const GeminiAPI = gem;
 
 // Initialize the secret and the key
 const secret = '0xe-SECRET-HERE'; 
 const key = "0xf-KEY_HERE";
 // Added Crypto Compare API KEY (2:55): https://academy.moralis.io/lessons/cryptocompare-setup
-const CCAPIKey = "0xg-CryptoCompare_KEY_HERE";
-
+// const CCAPIKey = "0xg-CryptoCompare_KEY_HERE";
+const CCAPIKey = "a43666c8e9baceac70508ba0b8ec090000c3ecfa4234277e37cf718acedea95a";
 
 // Import Crypto Compare: https://academy.moralis.io/lessons/importing-cryptocompare
 // import { setApiKey } from "./node_modules/cryptocompare/index.js";
