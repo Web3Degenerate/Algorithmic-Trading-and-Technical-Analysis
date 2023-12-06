@@ -276,5 +276,24 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
       - (3) Check continously if price is crossing 100 MA => (trigger) BUY/SELL/HOLD.
 
     - Use CryptoCompare's [**histoHour()**](https://github.com/exodusmovement/cryptocompare#histohour)
+
+      - ([histoHour() README on npm](https://www.npmjs.com/package/cryptocompare#histohour))
       - Know the price of the asset 100 hours in the past and each hour going forward.
       - Other options `histoDay()`.
+
+    - Create movingAverage Function and move it to a new file `indicators.js`.
+
+23. [**Create Indicators File**](https://academy.moralis.io/lessons/creating-indicators-file)
+
+    - New file in `bot-trading` directory, **indicators.js**.
+    - Move our `movingAverage()` function to `indicators.js`
+      - bundle it up as a module.
+    - **2023 Update**: \_add export statement after normal `movingAverage()` function in `indicators.js`:
+      - `export default movingAverage`
+      - Then **import** with statement:
+        - `import movingAverage from './indicators.js'`
+      - Then call our `movingAverage()` function as normal from `index.js`
+    - Change function to **hourlyMovingAverage()**
+
+24. [**Creating Daily and Minutely MA**](https://academy.moralis.io/lessons/creating-indicators-file)
+    - x
