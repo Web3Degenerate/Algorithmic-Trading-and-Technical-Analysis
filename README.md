@@ -275,4 +275,6 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
       - (2) Calculate Moving Average from 100 past hours.
       - (3) Check continously if price is crossing 100 MA => (trigger) BUY/SELL/HOLD.
 
-    - Use CryptoCompare's **histoHour()**
+    - Use CryptoCompare's [**histoHour()**](https://github.com/exodusmovement/cryptocompare#histohour)
+      - Know the price of the asset 100 hours in the past and each hour going forward.
+      - Other options `histoDay()`.

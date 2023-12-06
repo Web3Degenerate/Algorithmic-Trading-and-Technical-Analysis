@@ -76,8 +76,34 @@ CryptoCompareAPI.price('BTC', ['USD', 'EUR'])
 .catch(console.error);
 
 // Get Historic Prices
-CryptoCompareAPI.priceHistorical('BTC', ['USD', 'EUR'], new Date('2017-01-01'))
-.then(prices => {
-    console.log("BTC price on 1/1/2017 in USD/EUR was: ", prices) // { USD: 995.44, EUR: 946.47}
+// CryptoCompareAPI.priceHistorical('BTC', ['USD', 'EUR'], new Date('2017-01-01'))
+// .then(prices => {
+//     console.log("BTC price on 1/1/2017 in USD/EUR was: ", prices) // { USD: 995.44, EUR: 946.47}
+// })
+// .catch(console.error);
+
+
+// *************************** STEP 1 - GET DATA FROM CryptoCompare ************************************//
+// Add histoHour() in (4:00): https://academy.moralis.io/lessons/creating-hourly-ma-indicator
+CryptoCompareAPI.histoHour('BTC', 'USD')
+.then(data => {
+//   console.log(data)
+            // -> [ { time: 1487448000,
+            //        close: 1060.34,
+            //        high: 1061.44,
+            //        low: 1058.85,
+            //        open: 1059.24,
+            //        volumefrom: 739.6,
+            //        volumeto: 790019.22 },
+            //        ... ]
+  console.log("Size of list is: ",data.length) //get size of data returned 169 hours in the list. 
+  //We want the first element to the the current hour, then count back. 
+  data = data.reverse()
+  //Use for loop
+  for(var i = 0; i<10; i++){
+    console.log(i);
+    console.log(data[i].close)
+  }
+  console.log("Current Hour Should Be: ", data[0]) // returned '1701828000' which was Wed Dec 06 2023 02:00:00 GMT.
 })
-.catch(console.error);
+.catch(console.error)
