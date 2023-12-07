@@ -296,4 +296,34 @@ shortSignal = ta.crossover(longMa, shortMa) and timeInRange
     - Change function to **hourlyMovingAverage()**
 
 24. [**Creating Daily and Minutely MA**](https://academy.moralis.io/lessons/creating-indicators-file)
-    - x
+    - [Submit Solution here](https://studygroup.moralis.io/t/creating-daily-and-minutely-ma-practical-assignment/7687) 
+
+
+25. [**Create Market Order At Gemini**](https://academy.moralis.io/lessons/creating-market-order-at-gemini)
+    - Previously, could only do **LIMIT ORDER**, _ie, we had to enter the specific price__
+    - Per Gemini, market orders are not supported, so work around, is to **use a limit order, have a very aggressive price and gemini will give you the market price if you use the immediate or cancel feature??**
+        - Because the price is so HIGH or LOW + cancel, Gemini treats as a market order??
+
+    - When we use Gemini, we use REST client. 
+    - We need to specify the amount and price. 
+    - Example of this method: 
+
+```js
+//Place Market Order on Gemini: 
+restClient.newOrder({amount:1,
+                    price:100000,
+                    side:"buy",
+                    symbol:"btcusd",
+                    options:["immediate-or-cancel"]})
+.then(res => console.log(res))
+.catch(error => console.error(error))
+
+```
+
+
+26. [**Extract Market Order out into it's own Function/Module**](https://academy.moralis.io/lessons/creating-exchange-module)
+    - Create `exchange.js` for market buy order. 
+    - Create `exchage-sell.js` for market sell order. 
+
+27. []()
+
