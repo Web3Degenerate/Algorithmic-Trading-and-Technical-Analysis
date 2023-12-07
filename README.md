@@ -325,5 +325,24 @@ restClient.newOrder({amount:1,
     - Create `exchange.js` for market buy order. 
     - Create `exchage-sell.js` for market sell order. 
 
-27. []()
+27. [**Scripting Gemini Buy Bitcoin Shortcut**](https://academy.moralis.io/lessons/scripting-gemini-buy-bitcoin-shortcut)
+    - Start off with a **NEW `index.js`** with only the following contents: 
+
+```js
+import fetch from 'node-fetch';
+global.fetch = fetch;
+
+//All of our import statements: 
+import hourlyMovingAverage from './indicators.js'
+import dailyMovingAverage from './indicators-daily-ma.js'
+import minutelyMovingAverage from './indicators-minutely-ma.js'
+// import marketBuy from './exchange.js'
+import marketBuyBitcoin from './exchange.js'
+import marketSellBitcoin from './exchange-sell.js'
+
+```
+
+-
+  - Added `exchange-get-ticker.js` to get the ticker price of bitcoin (_hard coded in our example_)
+  - x
 
