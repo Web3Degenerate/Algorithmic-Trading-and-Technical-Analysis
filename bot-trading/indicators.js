@@ -30,7 +30,10 @@ function hourlyMovingAverage(cryptoAsset, fiatCurrency, hours, callback){
             sum+=data[i].close  
         }
 
-        var movingAverageHourly = sum/hours;
+    //To remove decimal points, use Math.floor()
+        // var movingAverageHourly = sum/hours;
+        var movingAverageHourly = Math.floor(sum/hours);
+
 
         callback(movingAverageHourly);
 

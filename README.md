@@ -346,3 +346,39 @@ import marketSellBitcoin from './exchange-sell.js'
   - Added `exchange-get-ticker.js` to get the ticker price of bitcoin (_hard coded in our example_)
   - x
 
+
+28. [**FINAL STEP - BOT for Gemini (_Sandbox mode_)**](https://academy.moralis.io/lessons/building-ma-strategy)
+    - **_Strategy Overview:_** 
+        - (1) If BTC price is **less than** Moving Average then we want to buy. 
+          - _Rationale: If BTC is less than MA, there is a chance that BTC is **Oversold**_
+          - Good enough indicator for our example. 
+          - We see an anomoly in the price versus the past 100 hours, then we may be buying on a local dip. 
+
+        - (2) **However, we only want to buy if we do not currently have a position**
+
+        - (1) If BTC price is **more than** the 100 H Moving Average than we want to sell. 
+        - (2) **We only sell if we have a position. 
+          - Ideally, we'd like to short when our sell signal is triggered, even if we don't have a position.
+          - _However, Gemini does not have shorting. You'd have to use something like Bitmex to short (circa 2019)_ 
+
+    - In `index.js`, add our **strategy()** function. 
+    - Example, how to set a script to run our strategy over and over again, based on a time frame with **setTimeout()**
+
+```js
+//In index.js
+function strategy(){
+    console.log("Executing strategy")
+    // (5:45) To do this over and over again, use setTimeout()
+        // Do this function, and in this case, after we have finished all of our strategy for all of the tick. 
+        // After the tick has ended, we run it again. 
+    setTimeout(strategy, 5000)
+}
+
+strategy();
+
+``` 
+
+
+-
+  - [START HERE (13:27) Set our position boolean](https://academy.moralis.io/lessons/building-ma-strategy)
+
